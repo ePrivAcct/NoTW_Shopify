@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "main":{
+            "type": "landing-page-header"
+        },
+        "template": {
+            "type": "template-page"
+        }
+    },
+    "order": ["main", "template"]
+}

@@ -15,7 +15,10 @@
 </head>
 <body class="bg-white-700 py-5 mx-auto">
 
-  {% section 'header' %}
+{% unless url contains "sign-up"%}
+          {% section 'header' %}
+     {% endunless %}
+ 
 
   <main role="main">
     {{ content_for_layout }}

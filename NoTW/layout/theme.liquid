@@ -18,10 +18,15 @@
 {% unless page.url == '/pages/sign-up' %}
           {% section 'header' %}
      {% endunless %}
+     
  
-
   <main role="main">
     {{ content_for_layout }}
+
+{% if page.url == '/pages/sign-up' %}
+   {% section 'newsletter' %}
+ {% endif %}
+
   </main>
 </body>
 </html>

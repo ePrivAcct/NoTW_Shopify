@@ -16,15 +16,40 @@
 
 }
 
+.variant-option + label {
+  color: gray;  
+  padding: 0 8px;
+  margin: 0 2px;
+}
+.variant-option:checked + label {
+  text-decoration: underline;
+  
+}
+.variant-option[disabled] + label {
+  opacity: 0.5;  
+}
+.variant-option {
+   display: none;
+}
+
+/* .product-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+} */
+
 @media screen and (min-width:350px) and (max-width: 1100px){
  .product--medias{
         width: 100%;
  }
+
+ .product-page {
+    display: block;
+ }
 }
 </style>
 
-<div class="max-w-6xl mx-4 my-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="max-w mx-4 my-8">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-20 product-page">
         <div class="product--medias">
             <div class="hidden md:block ">
                 {% for media in product.media %}
@@ -54,7 +79,7 @@
             </div>
         </div>
 
-        <div class="product--information sticky top-5 p-2">
+        <div class="product--information sticky top-5 pl-2 -mr-4 py-6">
             {%form 'product', product, id: 'product-form', novalidate: 'novalidate' %}
                 <input type="hidden" name="id" value="{{ selected_variant.id }}">
 
@@ -88,8 +113,25 @@
                                         {% for option in product.options_with_values %}
                                             <!-- <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{option.name}}</label> -->
 
-                                            <div class="my-10">
-                                                <select 
+                                            <div class="my-8 -mx-2.5">
+
+                                                {%- for variant in product.variants -%}         
+                                                    <input 
+                                                    type="radio" 
+                                                    name="id" 
+                                                    class="variant-option"
+                                                    value="{{ variant.id }}" 
+                                                    id="variant-option-{{ variant.id }}" 
+                                                    {% unless variant.available %} disabled{% endunless %}
+                                                    {% if product.selected_variant.id == variant.id %} checked{% endif %}
+                                                    >
+                                                    <label for="variant-option-{{ variant.id }}">{{ variant.title }}</label>
+                                                    {%- endfor -%}
+
+
+
+
+                                                <!-- <select 
                                                     name="options[{{ option.name | escape }}]" 
                                                     id="Option-{{ section.id }}-{{ forloop.index0 }}" 
                                                     class="w-full"
@@ -107,7 +149,7 @@
                                                 
                                                     {% endfor %}
 
-                                                </select>           
+                                                </select>            -->
                                             </div>
 
                                             <script type="application/json">

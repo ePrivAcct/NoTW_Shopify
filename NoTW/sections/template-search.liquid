@@ -1,0 +1,35 @@
+<div class="container mx-auto">
+    {% paginate search.results by 3 %}
+    <h1 class="text-xl my-8  text-center">SEARCH RESULTS</h1>
+
+        {% if search.performed %}
+            {% if search.results.size > 0 %}
+            <div class="max-w-6xl mx-auto">
+                <p class="text-gray-500 text-center my-10">{{ search.results.size }} result(s) found for the search term: <span class="font-medium uppercase">{{ search.terms | escape }}</span> </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {% for item in search.results %}
+                        
+                                    {% case item.object_type %}
+                                        {% when 'product' %}
+                                            {%render 'product-card', product_product: item %}
+                                        {% else %}
+                                        
+                                    {% endcase %}
+                        
+                        {% endfor %}
+                </div>
+            </div>
+                    
+                {% else %}
+                    <div class="text-center my-4 mt-20">
+                        <p>No results found for the search term: <span class="font-medium uppercase">{{ search.terms | escape }}</span>. Please try a different key word.</p>
+                    </div>
+            {% endif %}
+        {% endif %}
+        
+
+        {% render 'pagination', pagination: paginate%}
+    {% endpaginate %}
+
+</div>
+

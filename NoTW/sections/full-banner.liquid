@@ -1,0 +1,121 @@
+
+
+{% if section.settings.enable_full_banner %}
+    
+    <a href="{{ routes.all_products_collection_url }}">
+       <img src="{{ section.settings.img | img_url: 'master' }}" alt="{{ media.preview_image.alt }}" class="section--fullwidth-banner" id="section--fullwidth-banner"> 
+    </a>
+    
+    <a href="{{ routes.all_products_collection_url }}">
+        <img src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="{{ media.preview_image.alt }}" class="section--fullwidth-mobile  py-2 px-3" id="section--fullwidth-mobile">
+    </a>
+
+    
+
+   
+    
+
+     
+  
+      
+    
+ 
+  <style>
+    .section--fullwidth-banner{
+      position: relative;
+      display: block;
+      align-items: center;
+      width: 100%;        
+      overflow: visible;
+      text-align: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+  
+
+
+    .section--fullwidth-banner, .section--fullwidth-mobile .title{
+      z-index: 1;
+      width: 100%;
+      font-weight: 900;
+      font-size: 170%;
+ 
+    }
+    .section--fullwidth-banner, .section--fullwidth-mobile .title span{
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.8);
+      color: #000;
+    }
+
+    
+    .section--fullwidth-banner img{
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: block;
+    } 
+    
+    .section--fullwidth-mobile{
+        display: none;
+    }
+   
+@media screen and (max-width:1199px) {
+    .section--fullwidth-banner{
+        display: none;
+
+    }
+
+    .section--fullwidth-mobile{
+        display: inline-block;
+        
+    }
+
+
+}
+ 
+  </style>
+ 
+ 
+{% endif %}
+ 
+{% schema %}
+  {
+    "name": "Full-width Banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_full_banner",
+        "label": "Enable Banner",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Default Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Banner Image"
+        },
+      {
+        "type": "number",
+        "id": "img_height",
+        "label": "Image height in px",
+            "default": 200
+      }
+    ]
+  }
+ 
+{% endschema %}
+ 
+{% stylesheet %}
+{% endstylesheet %}
+ 
+{% javascript %}
+{% endjavascript %}

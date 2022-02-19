@@ -5,7 +5,14 @@
             "settings": {
                 "featured_collection": "all"
             }
+        },
+
+        "full-banner": {
+            "type": "full-banner",
+            "settings": {
+                "full-banner": "all"
+            }
         }
     },
-    "order": ["featured-collection"]
+    "order": ["full-banner", "featured-collection"]
 }

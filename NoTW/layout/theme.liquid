@@ -19,9 +19,15 @@
           {% section 'header' %}
      {% endunless %}
      
+
+     
  
   <main role="main">
     {{ content_for_layout }}
+
+<!-- {% if page.url == '/' %}
+        {% section 'full-banner' %}
+    {% endif %}     -->
 
 {% if page.url == '/pages/sign-up' %}
    {% section 'newsletter' %}

@@ -1,22 +1,28 @@
 {% if pagination.pages > 0 %}
     <nav role="navigation" class="flex justify-center my-8">
         {% if pagination.previous %}
-            <a href="{{pagination.previous.url}}" class="border border-gray-600 text-gray-600 hover:bg-gray-400 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">{{pagination.previous.title}}</a>
+            <a href="{{pagination.previous.url}}" class=" text-gray-600 hover:text-gray-900 hover:underline px-3 py-3 mx-1 rounded-sm font-medium border border-gray-200 hover:border-gray-900">{%render 'icon-previous'%}</a>
+
+            <!-- <a href="{{pagination.previous.url}}" class=" text-gray-600 hover:text-gray-900 hover:underline px-3 py-3 mx-1 rounded-sm font-medium ">{{pagination.previous.title}}</a> -->
         {% endif %}
 
         {% for part in pagination.parts %}
             {% if part.is_link %}
-                <a href="{{part.url}}" class="border border-gray-600 text-gray-600 hover:bg-gray-400 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">{{part.title}}</a>
+                <a href="{{part.url}}" class=" text-gray-600 hover:underline hover:text-gray-900 px-3 py-3 mx-1 rounded-sm font-medium">{{part.title}}</a>
             {% else %}
                 <span
-                    class="border border-gray-600 text-white bg-gray-600 px-8 py-3 mx-1 rounded-sm font-medium">{{part.title}}</span>
+                    class=" text-gray-600 underline px-3 py-3 mx-1 rounded-sm font-medium">{{part.title}}</span>
             {% endif %}
 
         {% endfor %}
 
         {% if pagination.next %}
-            <a href="{{pagination.next.url}}" class="border border-gray-600 text-gray-600 hover:bg-gray-400 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">{{pagination.next.title}}</a>
+            <a href="{{pagination.next.url}}" class=" text-gray-600 hover:text-gray-900 hover:underline px-3 py-3 mx-1 rounded-sm font-medium border border-gray-200 hover:border-gray-900">{%render 'icon-next'%}</a>
+
+            <!-- <a href="{{pagination.next.url}}" class=" text-gray-600 hover:text-gray-900 hover:underline px-3 py-3 mx-1 rounded-sm font-medium">{{pagination.next.title}}</a> -->
         {% endif %}
+
+        
 
     </nav>
 {% endif %}

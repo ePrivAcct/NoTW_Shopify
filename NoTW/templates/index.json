@@ -13,6 +13,7 @@
                 "full-banner": "all"
             }
         }
+       
     },
     "order": ["full-banner", "featured-collection"]
 }

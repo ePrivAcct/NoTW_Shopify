@@ -2,13 +2,26 @@
 
 {% if section.settings.enable_full_banner %}
     
-    <a href="{{ routes.all_products_collection_url }}">
+
+{% if section.settings.img !=blank %}
+   <a href="{{ routes.all_products_collection_url }}">
        <img src="{{ section.settings.img | img_url: 'master' }}" alt="{{ media.preview_image.alt }}" class="section--fullwidth-banner" id="section--fullwidth-banner"> 
     </a>
+    {% else %}
     
+ 
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100 section--fullwidth-banner'}}
+{% endif %}
+   
+    {% if section.settings.mobile_image !=blank %}
     <a href="{{ routes.all_products_collection_url }}">
         <img src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="{{ media.preview_image.alt }}" class="section--fullwidth-mobile  py-2 px-3" id="section--fullwidth-mobile">
     </a>
+
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100 section--fullwidth-mobile' }}
+    {% endif %}
+    
 
     
 

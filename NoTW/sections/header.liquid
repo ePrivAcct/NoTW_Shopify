@@ -5,9 +5,9 @@
 {% endif %}
 
 <div class="relative bg-white " x-data="{ mobileMenuOpen: false, searchBarOpen: false }" >
-  <div class="relative z-10 pt-2 ">
-  <div class="mx-auto px-4 sm:px-6 mb-10 bg-white ">
-    <div class="flex justify-between items-center pt-2 pb-2 mt-30 md:justify-start md:space-x-10 -mt-2">
+  <div class="relative pt-2 ">
+  <div class="mx-auto px-4 sm:px-6 mb-10">
+    <div class="flex justify-between items-center pt-2 pb-2 mt-30 md:justify-start md:space-x-10 -mt-2 ">
 
     <div class="flex justify-between items-center">
       <!------STORE NAME/LOGO------>
@@ -22,7 +22,7 @@
 
       <!------NAVIGATION MENU------->
 
-              <nav class="hidden md:flex space-x-10 z-10 uppercase ml-5">
+              <nav class="hidden md:flex space-x-10 uppercase ml-5 z-10">
                 {% for link in main_menu_linklist %} 
                 {% if link.links !=blank%}
         {% assign link_handle = link.handle | replace: '-' , '_'%} 
@@ -85,23 +85,27 @@
         <button x-on:click="searchBarOpen = true" type="button" class="whitespace-nowrap text-base text-gray-500">
           SEARCH
         </button>
-        <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500"
-          >{{'BAG'}}({{cart.item_count}}) {% if shop.customer_accounts_enabled
-          %} {% if customer %}
-          <a href="{{ routes.account_url }}" class="text-base text-gray-500 hover:text-gray-900"
-            >Account</a
-          >
-          {% comment %} {{'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"'}}
+        <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500">
+          {{'BAG'}}({{cart.item_count}}) {% if shop.customer_accounts_enabled%} 
+          {% if customer %}
+            <a href="{{ routes.account_url }}" class="text-base text-gray-500 hover:text-gray-900">Account</a>
+          
+            {{'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"'}}
           {% else %}
-          {{ "Log in" | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
-          {{'Register' | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"'}} {% endcomment %}
+            {{ 'Login' | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+            {{'Register' | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"'}}
 
-          {% endif %} {% endif %}
+          {% endif %} 
+          {% endif %}
         </a>
+
+        <a href="{{routes.account_login_url}}" class="">
+            {%render 'icon-user'%}
+          </a>
       </div>
 
       <!----HAMBURGER MENU CONTAINER------>
-      <div x-show="mobileMenuOpen" class="absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left md:hidden">
+      <div x-show="mobileMenuOpen" class="absolute top-0 inset-x-0 p-2 z-10 transform origin-top-left md:hidden">
         <div class="shadow-lg rounded-lg ring-1 ring-black ring-opacity-5 bg-white w-full">
           <div class="p-5 divide-y-2 divide-gray-50">
             <!---MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON-->

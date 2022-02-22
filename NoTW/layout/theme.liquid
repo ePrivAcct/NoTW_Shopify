@@ -13,9 +13,9 @@
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
 </head>
-<body class="bg-white-700 py-5 mx-auto">
+<body class="bg-white-700 py- mx-auto ">
 
-<div class="fixed top-0 left-0 right-0 z-10">
+<div class="sticky absolute top-0 left-0 right-0 z-10 mb-20">
 
 {%section 'announcement-bar'%}
 
@@ -26,7 +26,7 @@
 </div>
      
  
-  <main role="main">
+  <main role="main" class="mt-30">
     
     {{ content_for_layout }}
 

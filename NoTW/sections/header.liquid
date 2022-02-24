@@ -6,7 +6,7 @@
 
 <div class="relative bg-white " x-data="{ mobileMenuOpen: false, searchBarOpen: false }" >
   <div class="relative pt-2 ">
-  <div class="mx-auto px-4 sm:px-6 mb-10">
+  <div class="mx-auto px-4 sm:px-6">
     <div class="flex justify-between items-center pt-2 pb-2 mt-30 md:justify-start md:space-x-10 -mt-2 ">
 
     <div class="flex justify-between items-center">
@@ -71,9 +71,18 @@
 
     <!------HAMBURGER MENU--------->
       <div class="-mr-2 -my-2 ml-3 md:hidden">
+        <div class="flex items-center justify-evenly">
+          <div class="mx-2">
+            <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-lg text-gray-500 ">
+          {{cart.item_count}}</a>
+        </div>
+        <button x-on:click="searchBarOpen = true" type="button">
+          {%render 'icon-search'%}
+        </button>
         <button x-on:click="mobileMenuOpen = true" type="button" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
             {%render "icon-menu" %}
         </button>
+        </div>
       </div>
 
      

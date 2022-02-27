@@ -1,5 +1,5 @@
 <style>
-    .checkout-btn{
+    .checkout-btn, .shopping-btn{
         background-color: #152238;
         border: 1px solid #152238;
     }
@@ -11,6 +11,8 @@
     .cont-shopping-btn {
         color: #152238;
     }
+
+
 </style>
 
 {% if cart.item_count > 0 %}
@@ -92,9 +94,9 @@
 {% else %}
     <div class="max-w-6xl h-60 my-4 mx-auto flex items-center justify-center"> 
         <div class="text-center">
-            <h1 class="text-3xl my4">Your shopping bag is currently empty </h1>
+            <h1 class="text-3xl my4">Your shopping bag is currently empty. </h1>
 
-            <div class="my-4 py-4"><a href="{{ routes.all_products_collection_url }}" class="border border-gray-600 text-white bg-gray-600 px-8 py-2">Continue Shopping</a></div>
+            <div class="my-4 py-4"><a href="{{ routes.all_products_collection_url }}" class=" text-white hover:bg-gray-900 px-8 py-2 shopping-btn">CONTINUE SHOPPING</a></div>
         </div>
     </div>
 {% endif %}

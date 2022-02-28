@@ -1,5 +1,152 @@
 <style>
 
+.footer-background{
+  background-color: #152238;
+}
+
+footer{
+
+        position: fixed;
+        left: 0;
+        right:0;
+        bottom: 0;
+       
+        color: white;
+        text-align: center;
+        padding-top: 5px;
+    
+        
+    }
+
+    .links a, .copyright  {
+      font-size: 10px;
+    } 
+
+  
+   /* .main-footer{
+
+        position: relative;
+        bottom: 0;
+        height: 2.5rem;  
+        
+    } */
+
+<!-- @media screen and (min-width:350px) and (max-width: 1200px){
+    footer a, .copyright {
+        display:block;
+        font-size:8px;
+    }
+
+    .main-footer a{
+        display: block;
+    }
+    .links a {
+         display: block;
+    }
+}
+
+</style>
+<footer class="z-20">
+<div class="relative footer-background main-footer hidden md:flex space-x-10 uppercase z-20 justify-between "  >
+  <div class="relative pt-2">
+    <div class="mx-auto px-4 sm:px-6 flex justify-between">
+      <div class="flex justify-between items-center pt-2 pb-2 mt-30 md:justify-start md:space-x-10 -mt-2">
+
+     
+        <!------STORE NAME/LOGO------>
+
+
+
+  {%- assign footer_linklist = section.settings.footer_linklist -%}
+  {% if linklists[footer_linklist].links.size > 0 %}
+  <div class="flex justify-between">
+    <ul class="flex md:flex uppercase ml-5 text-xs items-center pt-3 pb-2 mt-30  md:space-x-10 text-white links " >
+      {% for link in linklists[footer_linklist].links %}
+        <li><a href="{{ link.url }}" class="">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+ 
+
+        <div class="flex justify-start lg:flex-1 truncate">
+          
+                  
+        </div>
+
+
+
+        <!------NAVIGATION MENU------->
+
+  </div>
+
+    
+
+
+
+        <!------CART BUTTON / ACCOUNT LINKS IF ENABLED------->
+        <div class="hidden md:flex item-center justify-end md:flex-1 space-x-5 text-white">
+          
+          <div >
+    <small class="text-white copyright"> Copyright &copy; {{ 'now' | date: "%Y" }}, {%comment%}{{ shop.name | link_to: '/' }}{%endcomment%}NoTW<span class="font-extralight">&trade;</span></small>
+      </div>
+          
+        </div>
+
+
+
+      </footer>
+
+
+              <!---LINKS FOR MOBILE MENU-->
+             
+                </div>
+              </div>
+            </div>
+
+
+      </div>
+    </div>
+  
+      
+      </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<style>
+
     footer{
 
         position: fixed;
@@ -16,18 +163,18 @@
 
     .links a, .copyright  {
       font-size: 10px;
-    }
+    } -->
 
   
-    /* .main-footer{
+    <!-- /* .main-footer{
 
         position: absolute;
         bottom: 0;
         height: 2.5rem;  
         
-    } */
+    } */ -->
 
-@media screen and (min-width:350px) and (max-width: 1200px){
+<!-- @media screen and (min-width:350px) and (max-width: 1200px){
     footer a, .copyright {
         display:block;
         font-size:8px;
@@ -41,9 +188,9 @@
     }
 }
 
-</style>
+</style> -->
 
-<footer class="z-10 ">
+<!-- <footer class="z-10 ">
     <div class="main-footer flex justify-start items-center ">
     <div class="md:flex items-center">
   {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
@@ -79,11 +226,11 @@
   {% endif %}
 <div class="flex items-center">
 <div class="flex items-center">
-    <!-- <a href="/" class="text-xs uppercase">Instagram</a> -->
+    <a href="/" class="text-xs uppercase">Instagram</a> -->
     <!-- <a href="/">Twitter</a>
     <a href="/">Facebook</a> -->
   
-<div class="links">
+<!-- <div class="links">
 
 
   {%- assign footer_linklist = section.settings.footer_linklist -%}
@@ -98,35 +245,16 @@
   <div class="flex ml-5">
     <small class="text-xs copyright "> Copyright &copy; {{ 'now' | date: "%Y" }}, {%comment%} {{ shop.name | link_to: '/' }} {%endcomment%} NoTW<span class="font-extralight">&trade;</span></small>
   </div>
-</div>
+</div> -->
   
 
   
 
-    </div>
+    <!-- </div>
 </div>
 </div>
 </div>
 </footer>
 
-{% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "footer_linklist",
-        "label": "First menu",
-        "default": "footer"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
-      }
-    
-    ]
-  }
 
-{% endschema %}
+

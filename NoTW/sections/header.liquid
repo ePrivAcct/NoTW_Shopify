@@ -144,7 +144,7 @@
                 {{cart.item_count}}</a>
                 {% endif %}
                </div>
-               <button x-on:click="searchBarOpen = true" type="button" class="px-1">
+               <button x-on:click="searchBarOpen = true; mobileMenuOpen = false "  type="button" class="px-1">
                 {%render 'icon-search'%}
                 </button>
               

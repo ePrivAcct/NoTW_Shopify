@@ -1,3 +1,10 @@
+<style>
+    .back-to-account{
+        color: #152238;
+    }
+</style>
+
+
 <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="flex items-start md:items-end justify-between my-5">
         <div class="w-1/2">
@@ -6,7 +13,7 @@
             <span class="text-sm text-white bg-gray-700 rounded-full my-2 px-4 py-1">{{ order.financial_status_label }}</span> 
         </div>
         
-        <a href="{{ routes.account_url }}" class="text-blue-700 hover:text-blue-900 underline font-medium">Back to account</a>
+        <a href="{{ routes.account_url }}" class="uppercase hover:text-blue-900 underline font-medium back-to-account">Back to account</a>
     </div>
 
     <div>
@@ -77,7 +84,7 @@
     <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:gird-cols-3 gap-4 lg:gap-12 border border-gray-200 rounded-sm p-4 md:p-12 my-6 bg-gray-300">
         <div>
             <h1 class="font-medium mb-4">Billing Address</h1>
-            {{ order.billing_address | format_address}}
+            {{ order.billing_address | format_address }}
         </div>
         <div>
             <h1 class="font-meidum mb-4">Payment Information</h1>
@@ -87,10 +94,10 @@
                 {% assign credit_card_last_four_digits =transaction.payment_details.credit_card_number %}
                 {% if credit_card_company %}
                     <p>{{ credit_card_company }}</p>
-                    <p>{{ credit_card_last_four_digits}}</p>
-                    <span class="bg-gray-700 text-sm px-4 py-1 text-white">{{transaction.status_label}}</span>
+                    <p>{{ credit_card_last_four_digits }}</p>
+                    <span class="bg-gray-700 text-sm px-4 py-1 text-white">{{ transaction.status_label }}</span>
                 {% else %}
-                    <p class="text-sm mb-4">This order was manually placed by {{shop.name}}</p>
+                    <p class="text-sm mb-4">This order was manually placed by {{ shop.name }}</p>
                 {% endif %}
               </div>
             {% endfor %}
@@ -100,15 +107,15 @@
                 <tbody>
                <tr>
                   <td class="border border-gray-200 px-4 py-2">Subtotal</td>
-                  <td class="border border-gray-200 px-4 py-2">{{order.subtotal_price | money}}</td>
+                  <td class="border border-gray-200 px-4 py-2">{{ order.subtotal_price | money }}</td>
                </tr>
                <tr>
                   <td class="border border-gray-200 px-4 py-2">Shipping</td>
-                  <td class="border border-gray-200 px-4 py-2"{{order.shipping_price | money}}></td>
+                  <td class="border border-gray-200 px-4 py-2"{{ order.shipping_price | money }}></td>
                </tr>
                <tr>
                   <td class="border border-gray-200 px-4 py-2">Total</td>
-                  <td class="border border-gray-200 px-4 py-2">{{order.total_price | money}}</td>
+                  <td class="border border-gray-200 px-4 py-2">{{ order.total_price | money }}</td>
                </tr>
                 </tbody>
             </table>  

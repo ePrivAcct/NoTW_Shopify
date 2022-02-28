@@ -12,14 +12,18 @@
 
     }
 
-    .account-details{
+   .account-log{
           border-bottom: 1px solid #767474;
+    }
+
+    .view-address{
+        color: #152238;
     }
 
 </style>
 
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 ">
-    <div class="flex  justify-between ">
+    <div class=" account-log flex  justify-between ">
     <h1 class="text-2xl font-bold text-gray-700">Account</h1>
 {% if shop.customer_accounts_enabled%} 
             {% if customer %}
@@ -43,10 +47,12 @@
                             <div class="relative">
                                 <div class="w-full min-80 bg-gray-200 overflow-hidden lg:h-80">
                                     {% if order.line_items.first.image %}
-                                        <img class=" w-full h-full  object-center object-cover" src="{{ order.line_items.first.image | img_url: 'large' }}" alt="{{ order.line_items.first.image.alt }}">
+                                    <a href="{{ order.customer_url }}">
+                                        <img class=" w-full h-full  object-center object-cover" src="{{ order.line_items.first.image |  img_url: 'large'}}" alt="{{ order.line_items.first.image.alt }}">
                                     {% else %}
                                         {{ 'product-1' | placeholder_svg_tag: 'object-center object-cover' }}
                                     {% endif %}
+                                </a>
                                 </div>
 
                                 <div class="mt-4 flex items-start justify-between">
@@ -82,7 +88,7 @@
 
             {{ customer.default_address | format_address }}
 
-            <a href="{{ routes.account_addresses_url }}" class="text-sm text-blue-600 hover:text-blue-900 underline view-address">View addresses</a>
+            <a href="{{ routes.account_addresses_url }}" class="text-sm hover:text-blue-900 underline view-address">View addresses</a>
         </div>
     </div>
 </div>

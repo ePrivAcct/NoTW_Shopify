@@ -123,18 +123,43 @@
         <!----HAMBURGER MENU CONTAINER------>
         <div x-show="mobileMenuOpen" class="absolute top-0 inset-x-0 p-2 z-10 transform origin-top-left md:hidden">
           <div class=" bg-white w-full">
-            <div class="p-5 divide-y-2 divide-gray-50">
+            <div class="pb-3 pl-2 pr-2 divide-y-2 divide-gray-50">
               <!---MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON-->
                 <div class="flex items-center justify-between pb-3">
-                  <!-- <div>
-                    <h1 class="text-lg text-gray-500">{{section.settings.mobile_menu_title}}</h1>
-                  </div> -->
-
-                  <div class="-mr-2">
-                    <button  x-on:click="mobileMenuOpen = false" type="button" class="bg-white rounded-md text-gray-500">
-                      {%render 'icon-close' %}
-                    </button>
+                  <div>
+                     <a href="/">
+                    <h1 class="text-3xl font-bold truncate tracking-wide"> <!-- {{shop.name}} --> NoTW<span class="font-extralight">&trade;</span></h1>
+                  </a>
+                    <!-- <h1 class="text-lg text-gray-500">{{section.settings.mobile_menu_title}}</h1> -->
                   </div>
+
+
+                <div class="-mr-2 -my-2 ml-3 md:hidden">
+                <div class="flex items-center justify-evenly">
+                <div class="mx-3">
+                {% if cart.item_count == 0 %}
+                  <div></div>
+                  {% else %}
+                    <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-lg text-gray-500 ">
+                {{cart.item_count}}</a>
+                {% endif %}
+               </div>
+               <button x-on:click="searchBarOpen = true" type="button" class="px-1">
+                {%render 'icon-search'%}
+                </button>
+              
+                <button  x-on:click="mobileMenuOpen = false" type="button" class="bg-white rounded-md text-gray-500 p-2">
+                          {%render 'icon-close' %}
+                        </button>
+                </div>
+                
+                
+              
+             </div>
+                    
+                 
+                    
+                
                 </div>
 
 

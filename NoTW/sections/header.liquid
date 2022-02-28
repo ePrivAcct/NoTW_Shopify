@@ -83,7 +83,7 @@
           <button x-on:click="searchBarOpen = true" type="button" class="px-1">
             {%render 'icon-search'%}
           </button>
-          <button x-on:click="mobileMenuOpen = true" type="button" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
+          <button x-on:click="mobileMenuOpen = true; searchBarOpen = false" type="button" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
               {%render "icon-menu" %}
           </button>
           </div>
@@ -121,7 +121,12 @@
         </div>
 
         <!----HAMBURGER MENU CONTAINER------>
-        <div x-show="mobileMenuOpen" class="absolute top-0 inset-x-0 p-2 z-10 transform origin-top-left md:hidden">
+        <div x-show="mobileMenuOpen" 
+         x-transition:enter="transition ease-out duration-1000"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        
+        class="absolute top-0 inset-x-0 p-2 z-10 transform origin-top-left md:hidden">
           <div class=" bg-white w-full">
             <div class="pb-3 pl-2 pr-2 divide-y-2 divide-gray-50">
               <!---MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON-->

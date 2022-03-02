@@ -40,27 +40,55 @@
    display: none;
 }
 
-/* .product-page{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
 
-@media screen and (min-width:350px) and (max-width: 1200px){
+@media screen and (min-width:350px) and (max-width: 700px){
  .product--medias{
-        width: 100%;
-         
+      width:100%;     
+ }
+
+ .swiper{
+    width: 350px;
+    height: 500px;  
  }
 
  .product-page {
     display: block;
  }
 }
+
+@media screen and (min-width:701px) and (max-width: 1020px){
+     .product--medias{
+      width:100%;     
+ }
+
+ .swiper{
+    width: 900px;
+    height: 1000px;  
+ }
+
+ .product-page {
+    display: block;
+ }
+}
+
+@media screen and (min-width:1021px) and (max-width: 1200px){
+     .product--medias{
+      width:100%;     
+ }
+
+.product--medias{
+    display: block;
+}
+
+}
+
+
 </style>
 
 <div class="max-w-8xl mx-4 my-8">
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-20 product-page">
         <div class="product--medias">
-            <div class="hidden md:block ">
+            <div class="hidden lg:block ">
                 {% for media in product.media %}
                     <div class="h-100 overflow-hidden p-2">
                         {% render 'product-media', media: media %}
@@ -68,7 +96,7 @@
                 {% endfor %}
             </div>
 
-            <div class="md:hidden">
+            <div class="xl:hidden ">
                 <div class="swiper h-94">
                     <div class="swiper-wrapper">
                         {% for media in product.media %}

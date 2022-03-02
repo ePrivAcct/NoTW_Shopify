@@ -12,8 +12,14 @@
             "settings": {
                 "full-banner": "all"
             }
+        },
+
+        "about-us": {
+            "type": "about-us",
+            "settings": {
+                "about-us": "all"
+            }
         }
-       
     },
-    "order": ["full-banner", "featured-collection"]
+        "order": ["about-us", "full-banner", "featured-collection"]
 }

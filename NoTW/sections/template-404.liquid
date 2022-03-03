@@ -1,3 +1,10 @@
+<style>
+   .error-404-btn{
+      background-color:#152238 ;
+   }
+</style>
+
+
 <div class="max-w-md">
    <div class="text-5xl font-bold my-4">{{ section.settings.title }}</div>
    <div class="my-4">
@@ -9,7 +16,7 @@
       {% else %}
          {% assign shop_url = section.settings.button_url %}
       {% endif %}
-      <a href="{{ shop_url }}" class="px-4 inline py-2 text-base font-medium shadow bg-blue-900 hover:bg-blue-600 text-white">{{ section.settings.button_label }}</a>
+      <a href="{{ shop_url }}" class=" error-404-btn px-4 inline py-2 text-base font-medium shadow  hover:bg-gray-900 text-white">{{ section.settings.button_label }}</a>
    </div>
 </div>
 

@@ -5,9 +5,46 @@
       border: none;
    }
 
+   footer {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    padding-top: 3px;
+    background-color: #152238;
+    display: flex;
+  }
+
+  .links a,
+  .copyright {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 350px) and (max-width: 900px) {
+    /* footer a, .copyright {
+        display:block;
+        font-size:9px;
+        padding: 1px;
+    } */
+    footer {
+      margin-top: 20px;
+    }
+
+    .main-footer a {
+      display: block;
+    }
+    .links {
+      display: block;
+    }
+    .copyright {
+      margin-top: 6px;
+    }
+  }
+
 </style>
    
-<div class="flex flex-col items-center my-8">
+<div class="flex flex-col items-center my-8 h-full">
     {% if section.settings.title != blank %}
         <h1 class="text-3xl font-medium my-8 md:my-16">{{ section.settings.title }}</h1>
     {% endif %}
@@ -69,6 +106,52 @@
     {% endform %}
 </div>
 
+
+
+<!----------- FOOTER ---------->
+
+<footer class="fixed flex mt-30">
+  <div
+    class="flex items-center pt-2 pb-2 md:justify-start md:space-x-10 -mt-1 footer-background"
+  >
+   
+
+    {%- assign footer_linklist = section.settings.footer_linklist -%} {% if
+    linklists[footer_linklist].links.size > 0 %}
+    <div class=" ">
+      <ul
+        class="block md:flex  ml-5 text-xs items-center md:space-x-10 text-white links"
+      >
+        {% for link in linklists[footer_linklist].links %}
+        <li class="links">
+          <a href="{{ link.url }}" class="hover:uppercase">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <div
+        class="flex ml-5 text-xs items-center md:space-x-10 text-white links"
+      >
+        <div>
+          <p class="text-white copyright">
+            Copyright &copy; {{ "now" | date: "%Y" }}, {%comment%}{{
+              shop.name | link_to: "/"
+            }}{%endcomment%}NoTW<span class="font-extralight">&trade;</span>
+          </p>
+        </div>
+      </div>
+
+      <!------NAVIGATION MENU------->
+    </div>
+
+    <!------CART BUTTON / ACCOUNT LINKS IF ENABLED------->
+  </div>
+</footer>
+
+
+
+
 {% schema %}
 {
     "name": "Contact Form",
@@ -78,12 +161,20 @@
             "id": "title",
             "label": "Title",
             "default": "Contact Us"
-        }
-    ],
+        }, 
+        {
+      "type": "link_list",
+      "id": "footer_linklist", 
+      "label": "First menu", 
+      "default": "footer" 
+        } 
+    ], 
+    
     "presets": [
         {
             "name": "Contact Form"
         }
     ]
+   
 }
 {% endschema %}

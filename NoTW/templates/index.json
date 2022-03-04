@@ -14,12 +14,12 @@
             }
         },
 
-        "about-us": {
-            "type": "about-us",
+        "text-banner": {
+            "type": "text-banner",
             "settings": {
                 "about-us": "all"
             }
         }
     },
-        "order": ["about-us", "full-banner", "featured-collection"]
+        "order": ["text-banner", "full-banner", "featured-collection"]
 }

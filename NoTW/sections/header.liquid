@@ -129,7 +129,7 @@
 
         <!----HAMBURGER MENU CONTAINER------>
         <div x-show="mobileMenuOpen" 
-       x-transition:enter="transition ease-in duration-300" 
+       x-transition:enter="transition ease-in duration-200" 
        x-transition:enter-start="opacity-100 transform scale-x-100 -translate-x-1/2" 
        x-transition:enter-end="opacity-100 transform scale-x-100 translate-x-0" 
        x-transition:leave="transition ease-out-in duration-500" 
@@ -137,14 +137,14 @@
        x-transition:leave-end="opacity-100 transform scale-x-0 -translate-x-1/2" 
        
         
-        class="absolute top-0 inset-x-0 z-10 origin-left md:hidden">
-          <div class=" bg-white w-full h-screen hamburger-container">
+        class="absolute top-0 inset-x-0 z-100 origin-left md:hidden">
+          <div class="  w-full h-screen hamburger-container z-100">
             <div class="pb-3 pl-2 pr-2 pt-2 divide-y-2 divide-gray-50">
               <!---MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON-->
                 <div class="flex items-center justify-between pb-3 px-2">
                   <div>
                      <a href="/">
-                    <h1 class="text-3xl font-bold truncate tracking-wide pt-2  text-white "> <!-- {{shop.name}} --> NoTW<span class="font-extralight">&trade;</span></h1>
+                    <h1 class="text-3xl font-bold truncate tracking-wide   text-white "> <!-- {{shop.name}} --> NoTW<span class="font-extralight">&trade;</span></h1>
                   </a>
                     <!-- <h1 class="text-lg text-gray-500">{{section.settings.mobile_menu_title}}</h1> -->
                   </div>
@@ -182,13 +182,13 @@
               <!---LINKS FOR MOBILE MENU-->
               <div class="justify-between">
               <div class="pt-3 px-2">
-                <nav class="grid gap-y-5">
+                <nav class="grid gap-y-5 ">
                   {% for link in main_menu_linklist%}
                     {% if link.links != blank %}
 
                     {% assign mobile_link_handle = link.handle | replace: '-', '_' %}
                     <div class="relative" x-data="{ {{mobile_link_handle}}: false }">
-                      <button x-on:click="{{mobile_link_handle}} =! {{mobile_link_handle}}" class="text-base text-white hover:text-gray-900 flex items-center justify-between w-full">
+                      <button x-on:click="{{mobile_link_handle}} =! {{mobile_link_handle}}" class="text-base text-white hover:text-gray-900 flex items-center justify-between w-full ">
                         <div>{{link.title}}</div>
                         {%render 'icon-dropdown' %}
                       </button>
@@ -205,7 +205,7 @@
                       
                     </div>
                     {% else %}
-                      <a class="uppercase text-xl text-white" href="{{link.url}}">{{link.title}}</a>
+                      <a class="uppercase text-xl text-white  " href="{{link.url}}">{{link.title}}</a>
                       
                     {% endif %}
                   {% endfor %}
@@ -234,10 +234,10 @@
 
                 {%- assign footer_linklist = section.settings.footer_linklist -%}
                     {% if linklists[footer_linklist].links.size > 0 %}
-                    <div class="absolute bottom-0 pb-5">
-                      <ul class="mb-5 " >
+                    <div class="absolute bottom-0 pb-5 ">
+                      <ul class="mb-5 divide-y divide-solid divide-gray-100" >
                         {% for link in linklists[footer_linklist].links %}
-                          <li class="pt-3 pb-1"><a href="{{ link.url }}" class="text-white uppercase">{{ link.title }}</a></li>
+                          <li class="pt-3 pb-1"><a href="{{ link.url }}" class="text-white hover:uppercase">{{ link.title }}</a></li>
                         {% endfor %}
                       </ul>
                     </div>

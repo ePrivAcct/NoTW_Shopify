@@ -15,7 +15,7 @@
     [x-cloak] {display: none !important;}
   </style>
 </head>
-<body class="bg-white-700 py-0 mx-auto pb-10 ">
+<body class="bg-white-700  mx-auto">
 
 <div class="sticky absolute top-0 left-0 right-0 z-10 mb-10">
 
@@ -27,23 +27,34 @@
      
 </div>
      
- 
-  <main role="main" class="mt-30">
-    
-    {{ content_for_layout }}
+  
+<main role="main" class="mt-30 pb-5">
 
+{% if page.url == '/policies/refund-policy' %}
+  {% section 'shipping-policy' %}
+ {% else %}
+   
+    {{ content_for_layout }}
+  {%endif%}
 
 {% if page.url == '/pages/sign-up' %}
    {% section 'newsletter' %}
  {% endif %}
 
-{% if page.url == '/pages/contact' %}
-   {% section 'contact-form' %}
- {% endif %} 
-
- {%section 'footer'%}
 
 
-  </main>
+  
+    
+</main>
+
+{% if page.url != '/pages/contact' %}
+   {% section 'footer' %}
+  
+     
+ {% endif %}
+
+
+
+   
 </body>
 </html>

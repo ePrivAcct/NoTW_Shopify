@@ -2,21 +2,21 @@
   {% if section.settings.home_page_only == false or template.name == 'index' %}
 
 
-<h3 class="about-us-title">{{ section.settings.title | escape }}</h3>
-<p class="about-us-paragraph leading-10 px-6 text-center pb-6 ">{{ section.settings.paragraph | escape }}</p>
+<h3 class="banner-title leading-10 text-center ">{{ section.settings.title | escape }}</h3>
+<p class="banner-paragraph leading-10 px-6 text-center pb-6 ">{{ section.settings.paragraph | escape }}</p>
 
         {%endif%}
     {%endif%}
 
 {% schema %}
 {
-    "name": "About Us",
+    "name": "Text Banner",
     "settings": [
         {
         "type": "checkbox",
         "id": "show_section",
-        "label": "Show About Us",
-        "default": true
+        "label": "Show Text Banner",
+        "default": false
         },
         {
         "type": "checkbox",

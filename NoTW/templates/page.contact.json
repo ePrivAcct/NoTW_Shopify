@@ -4,5 +4,5 @@
       "type": "contact-form"
     }
   },
-  "order": ["contact-form"]
+  "order": ["template"]
 }

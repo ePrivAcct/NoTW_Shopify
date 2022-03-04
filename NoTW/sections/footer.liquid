@@ -1,239 +1,94 @@
 <style>
-
-
-footer{
-
-       position: fixed;
-        left: 0;
-        right:0;
-        bottom: 0;
-        color: white;
-        text-align: center;
-        padding-top: 3px;
-        background-color: #152238;
-        
-    }
-
-    .links a, .copyright  {
-      font-size: 10px;
-      
-    } 
-
-  
-
- @media screen and (min-width:350px) and (max-width: 1200px){
-    footer a, .copyright {
-        display:block;
-        font-size:8px;
-    }
-
-    .main-footer a{
-        display: block;
-    }
-    .links a {
-         display: block;
-    }
-}
-
-</style>
-
-<footer class="hidden md:flex z-20">
-
-<div class="hidden md:flex flex justify-between items-center pt-2 pb-2 mt-30 md:justify-start md:space-x-10 -mt-2 footer-background">
-
-     
-        <!------STORE NAME/LOGO------>
-
-
-
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-  <div class="flex justify-between">
-    <ul class="hidden md:flex uppercase ml-5 text-xs items-center   md:space-x-10 text-white links " >
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}" class="">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
- 
-
-        <div class="flex justify-start lg:flex-1 truncate">
-          
-                  
-        </div>
-
-
-
-        <!------NAVIGATION MENU------->
-
-  </div>
-
-    
-
-
-
-        <!------CART BUTTON / ACCOUNT LINKS IF ENABLED------->
-        <div class="hidden md:flex item-center  md:flex-1 space-x-5 text-white">
-          
-          <div >
-    <p class="text-white copyright"> Copyright &copy; {{ 'now' | date: "%Y" }}, {%comment%}{{ shop.name | link_to: '/' }}{%endcomment%}NoTW<span class="font-extralight">&trade;</span></p>
-      </div>
-          
-        </div>
-
-</footer>
-
-      
-
-
-              <!---LINKS FOR MOBILE MENU-->
-             
-   
-</div>
-
-
-{% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "footer_linklist",
-        "label": "First menu",
-        "default": "footer"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
-      }
-    ]
+  footer {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    padding-top: 3px;
+    background-color: #152238;
+    display: flex;
   }
 
-{% endschema %}
+  .links a,
+  .copyright {
+    font-size: 10px;
+  }
 
-
-
-
-
-
-
-
-
-
-<!-- 
-<style>
-
-    footer{
-
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #152238;
-        color: white;
-        text-align: center;
-        padding-top: 5px;
-        padding-bottom: 10px;
-        
-    }
-
-    .links a, .copyright  {
-      font-size: 10px;
-    } -->
-
-  
-    <!-- /* .main-footer{
-
-        position: absolute;
-        bottom: 0;
-        height: 2.5rem;  
-        
-    } */ -->
-
-<!-- @media screen and (min-width:350px) and (max-width: 1200px){
-    footer a, .copyright {
+  @media screen and (min-width: 350px) and (max-width: 900px) {
+    /* footer a, .copyright {
         display:block;
-        font-size:8px;
+        font-size:9px;
+        padding: 1px;
+    } */
+    footer {
+      margin-top: 20px;
     }
 
-    .main-footer a{
-        display: block;
+    .main-footer a {
+      display: block;
     }
-    .links a {
-         display: block;
+    .links {
+      display: block;
     }
-}
+    .copyright {
+      margin-top: 6px;
+    }
+  }
+</style>
 
-</style> -->
+<footer class="flex mt-30">
+  <div
+    class="flex items-center pt-2 pb-2 md:justify-start md:space-x-10 -mt-1 footer-background"
+  >
+    <!------STORE NAME/LOGO------>
 
-<!-- <footer class="z-10 ">
-    <div class="main-footer flex justify-start items-center ">
-    <div class="md:flex items-center">
-  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-  <ul>
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
-
-      {% if settings[social_link] != blank %}
-        <li>
-          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-            {% include social_icon %}
-            <span class="icon-fallback-text">{{ social }}</span>
-          </a>
+    {%- assign footer_linklist = section.settings.footer_linklist -%} {% if
+    linklists[footer_linklist].links.size > 0 %}
+    <div class=" ">
+      <ul
+        class="block md:flex  ml-5 text-xs items-center md:space-x-10 text-white links"
+      >
+        {% for link in linklists[footer_linklist].links %}
+        <li class="links">
+          <a href="{{ link.url }}" class="hover:uppercase">{{ link.title }}</a>
         </li>
-      {% endif %}
-
-    {% endfor %}
-  </ul>
-  
-  {% if section.settings.show_payment_icons %}
-    {% unless shop.enabled_payment_types == empty %}
-      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-      <ul class="payment-icons">
-        {% for type in shop.enabled_payment_types %}
-          <li>
-            {{ type | payment_type_svg_tag: class: 'icon' }}
-          </li>
         {% endfor %}
       </ul>
-    {% endunless %}
-  {% endif %}
-<div class="flex items-center">
-<div class="flex items-center">
-    <a href="/" class="text-xs uppercase">Instagram</a> -->
-    <!-- <a href="/">Twitter</a>
-    <a href="/">Facebook</a> -->
-  
-<!-- <div class="links">
+      {% endif %}
 
+      <div
+        class="flex ml-5 text-xs items-center md:space-x-10 text-white links"
+      >
+        <div>
+          <p class="text-white copyright">
+            Copyright &copy; {{ "now" | date: "%Y" }}, {%comment%}{{
+              shop.name | link_to: "/"
+            }}{%endcomment%}NoTW<span class="font-extralight">&trade;</span>
+          </p>
+        </div>
+      </div>
 
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul class="flex md:flex uppercase ml-5 text-xs items-center pt-3 pb-2 mt-30  md:space-x-10  ">
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}" class=" ">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+      <!------NAVIGATION MENU------->
+    </div>
 
-  <div class="flex ml-5">
-    <small class="text-xs copyright "> Copyright &copy; {{ 'now' | date: "%Y" }}, {%comment%} {{ shop.name | link_to: '/' }} {%endcomment%} NoTW<span class="font-extralight">&trade;</span></small>
+    <!------CART BUTTON / ACCOUNT LINKS IF ENABLED------->
   </div>
-</div> -->
-  
-
-  
-
-    <!-- </div>
-</div>
-</div>
-</div>
 </footer>
 
 
 
+{% schema %} 
+{ 
+  "name": "Footer", 
+  "settings": [ 
+  {
+      "type": "link_list",
+      "id": "footer_linklist", 
+      "label": "First menu", 
+      "default": "footer" 
+      } 
+      ] 
+  } 
+
+{% endschema %}

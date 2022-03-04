@@ -30,7 +30,8 @@
                     type="text" 
                     name="address[first_name]" 
                     id="address_fname_{{form.id}}" 
-                    value="{{ form.first_name }}"> 
+                    value="{{ form.first_name }}"
+                    required> 
                 </div>
 
                 <div class="mb-4">
@@ -40,7 +41,8 @@
                      type="text" 
                      name="address[last_name]" 
                      id="address_lname_{{form.id}}" 
-                     value="{{ form.last_name }}"> 
+                     value="{{ form.last_name }}"
+                     required> 
                 </div>
 
                 <div class="mb-4">
@@ -60,7 +62,8 @@
                     type="text" 
                     name="address[address1]" 
                     id="address_address1_{{form.id}}" 
-                    value="{{ form.address1}}"> 
+                    value="{{ form.address1}}"
+                    required> 
                 </div>
 
                 <div class="mb-4">
@@ -80,7 +83,8 @@
                     type="text" 
                     name="address[city]" 
                     id="address_city_{{form.id}}" 
-                    value="{{ form.city}}"> 
+                    value="{{ form.city}}"
+                    required> 
                 </div>
 
                 <div class="mb-4">
@@ -90,6 +94,7 @@
                     name="address[country]" 
                     id="address_country_{{form.id}}" 
                     value="{{ form.country }}"
+                    required
                     data-country-selector
                     data-id="{{ form.id }}"> 
                     {{ all_country_option_tags }}
@@ -113,7 +118,8 @@
                     type="text" 
                     name="address[zip]" 
                     id="address_zip_{{form.id}}" 
-                    value="{{ form.zip}}">
+                    value="{{ form.zip}}"
+                    required>
                 </div>
 
                 <div class="mb-4">
@@ -130,7 +136,7 @@
                         <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as default address</label>
                          </div>
                     <div class="flex flex-row gap-2">
-                        <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2 uppercase">Create Address</button>
+                        <button type="submit" class="w-full font-medium text-white hover:bg-gray-900 px-4 py-2 uppercase address-btn">Create Address</button>
                         <!-- <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4 py-2">Cancel</button> -->
                     </div>
             {% endform %}
@@ -276,7 +282,7 @@
                                             <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as default address</label>
                                         </div>
                                             <div class="flex flex-row gap-2">
-                                                <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2 edit-btn">Edit Address</button>
+                                                <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2 edit-btn">Save Changes</button>
                                                 <!-- <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4 py-2">Cancel</button> -->
                                             </div>
                                     {%endform%}

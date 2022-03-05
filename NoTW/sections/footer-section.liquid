@@ -20,7 +20,7 @@
 
     
 
-    @media screen and (min-width:350px) and (max-width: 700px){
+    @media screen and (min-width:250px) and (max-width: 700px){
         .links ul{
             display: block;
         }
@@ -29,39 +29,44 @@
             height: 12rem;
            
         }
+        .copyright{
+            text-align: center !important;
+        }
     }
 </style>
 
-<footer class="block md:flex items-center footer-section py-5 px-4  " >
-  <div class="block md:flex justify-between item-center ">
-    <div class="block md:flex justify-between items-center">
+<footer class="block md:flex justify-between items-center footer-section py-5 px-4" >
+  <div class="block md:flex justify-between items-center">
 
     {% for block in section.blocks %}
         {% assign item = block.settings %}
         {% if block.type == "link_list" %}
-            <div class="block md:flex justify-between links text-xs items-center">
+            <div class=" links text-xs ">
                 <!-- <h5>{{ item.title }}</h5> -->
                 {% assign footer_linklist = item.menu %}
                 <ul class="list-none text-sm flex" >
                     {% for link in linklists[footer_linklist].links %}
                     <li>
-                        <a href="{{ link.url }}" class="text-white ">{{ link.title | escape  }}</a>
+                        <a href="{{ link.url }}" class="text-white pl-2 hover:uppercase">{{ link.title | escape  }}</a>
                     </li>
                         
                     {% endfor %}
 
-                        <div>
-                    <p class="text-white text-xs copyright pt-2 text-center copyright">
+           
+                </ul>
+             
+           
+
+                
+            
+            </div>
+
+         <p class="text-white text-xs copyright text-center  relative pl-5 pr-0 md:pr-5 md:absolute right-0 items-center">
             Copyright &copy; {{ "now" | date: "%Y" }}, {%comment%}{{
               shop.name | link_to: "/"
             }}{%endcomment%}NoTW<span class="font-extralight">&trade;</span>
           </p>
-
-                </div>
-                </ul>
-
-            
-            </div>
+</div>
 
             {% else if block.type == block "text" %}
             <div class="col">
@@ -72,8 +77,10 @@
         {% endif %}
     {% endfor %}
 
-    </div>
-  </div>
+          
+
+    
+ 
 
 
  </footer>

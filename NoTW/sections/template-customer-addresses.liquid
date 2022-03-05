@@ -6,6 +6,7 @@
     color: #152238;
 }
 
+
 </style>
 
 <div class="max-w-6xl mx-auto p-4 py-12" x-data="{new_address: false}" x-cloak>
@@ -31,7 +32,7 @@
                     name="address[first_name]" 
                     id="address_fname_{{form.id}}" 
                     value="{{ form.first_name }}"
-                    required> 
+                     element required> 
                 </div>
 
                 <div class="mb-4">
@@ -42,18 +43,18 @@
                      name="address[last_name]" 
                      id="address_lname_{{form.id}}" 
                      value="{{ form.last_name }}"
-                     required> 
+                     element required> 
                 </div>
 
-                <div class="mb-4">
+                <!-- <div class="mb-4">
                     <label for="address_company{{form.id}}" class="uppercase text-gray-700 text-xs font-medium mb-2">Company</label>
                     <input 
                     class="w-full text-gray-700 border px-4 py-3 focus:outline-none" 
                     type="text" 
                     name="address[company]" 
                     id="address_company_{{form.id}}" 
-                    value="{{ form.company}}"> 
-                </div>
+                    value="{{ form.company}}" > 
+                </div> -->
 
                  <div class="mb-4">
                     <label for="address_address1_{{form.id}}" class="uppercase text-gray-700 text-xs font-medium mb-2">Address 1</label>
@@ -63,7 +64,7 @@
                     name="address[address1]" 
                     id="address_address1_{{form.id}}" 
                     value="{{ form.address1}}"
-                    required> 
+                    element required> 
                 </div>
 
                 <div class="mb-4">
@@ -73,7 +74,7 @@
                     type="text" 
                     name="address[address2]" 
                     id="address_address2_{{form.id}}" 
-                    value="{{ form.address2}}"> 
+                    value="{{ form.address2}}"element required> 
                 </div>
 
                  <div class="mb-4">
@@ -84,7 +85,7 @@
                     name="address[city]" 
                     id="address_city_{{form.id}}" 
                     value="{{ form.city}}"
-                    required> 
+                    element required> 
                 </div>
 
                 <div class="mb-4">
@@ -96,7 +97,7 @@
                     value="{{ form.country }}"
                     required
                     data-country-selector
-                    data-id="{{ form.id }}"> 
+                    data-id="{{ form.id }}" element required> 
                     {{ all_country_option_tags }}
                     </select>
                 </div>
@@ -107,7 +108,7 @@
                     class="w-full text-gray-700 border px-4 py-3 focus:outline-none" 
                     name="address[province]" 
                     id="address_province_{{form.id}}" 
-                    value="{{ form.province }}"> 
+                    value="{{ form.province }}"element required> 
                    
                     </select>
                 </div>
@@ -119,7 +120,7 @@
                     name="address[zip]" 
                     id="address_zip_{{form.id}}" 
                     value="{{ form.zip}}"
-                    required>
+                    element required>
                 </div>
 
                 <div class="mb-4">
@@ -129,7 +130,7 @@
                     type="tel" 
                     name="address[phone]" 
                     id="address_phone_{{form.id}}" 
-                    value="{{ form.phone }}">
+                    value="{{ form.phone }}"element required>
                 </div>
                     <div class="mb-4">
                         {{form.set_as_default_checkbox}}

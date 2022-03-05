@@ -575,14 +575,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 1.25rem;
 }
 
-.bottom-10 {
-  bottom: 2.5rem;
-}
-
-.-bottom-10 {
-  bottom: -2.5rem;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -805,20 +797,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0.5rem;
 }
 
-.mt-40 {
-  margin-top: 10rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
-.mb-0 {
-  margin-bottom: 0px;
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .block {
@@ -853,12 +833,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-12 {
@@ -895,12 +875,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-5 {
   height: 1.25rem;
-}
-
-.h-fit {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .w-full {
@@ -1017,6 +991,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .list-decimal {
   list-style-type: decimal;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .grid-cols-1 {
@@ -1303,11 +1281,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1358,6 +1331,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 2rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1398,8 +1376,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 0px;
 }
 
-.pb-6 {
-  padding-bottom: 1.5rem;
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .pt-2 {
@@ -1426,16 +1409,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.75rem;
 }
 
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-
 .pb-1 {
   padding-bottom: 0.25rem;
 }
 
 .pr-10 {
   padding-right: 2.5rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
 }
 
 .pr-3 {
@@ -1446,28 +1429,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 3rem;
 }
 
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-
-.pb-20 {
-  padding-bottom: 5rem;
-}
-
-.pb-52 {
-  padding-bottom: 13rem;
-}
-
-.pb-48 {
-  padding-bottom: 12rem;
-}
-
-.pb-40 {
-  padding-bottom: 10rem;
-}
-
-.pb-36 {
-  padding-bottom: 9rem;
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 
 .text-left {
@@ -1551,16 +1514,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-transform: uppercase;
 }
 
-.leading-10 {
-  line-height: 2.5rem;
-}
-
 .leading-normal {
   line-height: 1.5;
 }
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-10 {
+  line-height: 2.5rem;
 }
 
 .tracking-wide {
@@ -1679,13 +1642,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 300ms;
 }
 
-<<<<<<< HEAD
-=======
 .duration-200 {
   transition-duration: 200ms;
 }
 
->>>>>>> 936888210767eaaba57a727f13cf042609967cf8
 .duration-500 {
   transition-duration: 500ms;
 }
@@ -1852,10 +1812,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: 5rem;
   }
 
-  .md\:block {
-    display: block;
-  }
-
   .md\:flex {
     display: flex;
   }
@@ -1944,10 +1900,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }
-
-  .hover\:md\:flex:hover {
-    display: flex;
   }
 }
 

@@ -1,6 +1,8 @@
+
 <style>
   .announcement-bar {
-    background-color: #152238;
+    background-color: {{ section.settings.announcement_bar_color }};
+    /* background-color: #152238; */
     text-align: center;
     text-decoration: none;
     
@@ -16,6 +18,7 @@
   }
   
 </style>  
+
 
 {% if section.settings.show_announcement %}
   {% if section.settings.home_page_only == false or template.name == 'index' %}

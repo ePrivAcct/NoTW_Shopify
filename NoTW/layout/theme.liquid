@@ -30,28 +30,23 @@
   
 <main role="main" class="mt-30 pb-5">
 
-{% if page.url == '/policies/refund-policy' %}
-  {% section 'shipping-policy' %}
- {% else %}
+
    
     {{ content_for_layout }}
-  {%endif%}
+ 
 
 {% if page.url == '/pages/sign-up' %}
    {% section 'newsletter' %}
  {% endif %}
 
-
-
-  
     
 </main>
 
-{% if page.url != '/pages/contact' %}
-   {% section 'footer' %}
+
+   {% section 'footer-section' %}
   
      
- {% endif %}
+ 
 
 
 

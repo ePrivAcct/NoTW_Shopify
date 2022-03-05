@@ -13,6 +13,9 @@
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
   <style>
     [x-cloak] {display: none !important;}
+    .content-wrap{
+      padding-bottom: 2.5rem;
+    }
   </style>
 </head>
 <body class="bg-white-700  mx-auto">
@@ -28,22 +31,22 @@
 </div>
      
   
-<main role="main" class="mt-30 pb-5">
+<main role="main" class="mt-30 pb-20 relative min-h-screen ">
 
 
-   
+   <div class="content-wrap">
     {{ content_for_layout }}
- 
+ </div>
 
 {% if page.url == '/pages/sign-up' %}
    {% section 'newsletter' %}
  {% endif %}
 
-    
+    {% section 'footer-section' %}
 </main>
 
 
-   {% section 'footer-section' %}
+   
   
      
  

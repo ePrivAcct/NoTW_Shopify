@@ -43,10 +43,9 @@
     {{ content_for_layout }}
  </div>
 
-
-
-
-  
+{% if page.url == '/pages/about' %}
+  {%section 'about-us'%}
+{% endif %} 
 
 {% if page.url == '/pages/sign-up' %}
    {% section 'newsletter' %}

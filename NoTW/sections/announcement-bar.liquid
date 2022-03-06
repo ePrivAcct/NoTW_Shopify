@@ -11,7 +11,8 @@
   .announcement-bar__message {
     font-size: 12px;
     padding: 5px;
-    color: white;
+    /* color: white; */
+    color: {{ section.settings.announcement_bar_text_color }};
     text-transform: uppercase;
     
     
@@ -62,7 +63,7 @@
       "label": "Background color",
       "default": "#000000"
     },
-	{
+	  {
       "type": "color",
       "id": "announcement_bar_text_color",
       "label": "Text color",

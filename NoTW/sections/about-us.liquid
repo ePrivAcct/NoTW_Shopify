@@ -1,41 +1,55 @@
-{% if section.settings.show_section %}
-  {% if section.settings.home_page_only == false or template.name == 'index' %}
+{% if section.settings.about_us_page_only == true or template.name == 'template-about-us' %}
 
 
-<h3 class="about-us-title">{{ section.settings.title | escape }}</h3>
-<p class="about-us-paragraph leading-10 px-6 text-center pb-6 ">{{ section.settings.paragraph | escape }}</p>
+    
 
-        {%endif%}
-    {%endif%}
+<div class="max-w-6xl mx-auto my-4 pb-10">
+    <div class="grid grid-cols-1 gap-1 md:grid-cols-2">
+    <img src="{{ section.settings.about_picture | img_url: '800x800' }}" alt="{{ media.preview_image.alt }}" class=" h-full object-cover about-us-img" >
+    {% comment %} {{ page.content }} {% endcomment %}
+        <div class="leading-10 px-5 py-7 md:pl-10">
+           <h1 class="title text-9xl pb-7 pt-5 md:pt-0 -mt-10">{{ section.settings.title | escape }}</h1> 
+           <p class="font-light">{{ section.settings.description | newline_to_br }}</p> 
+    </div>
+
+    </div>
+</div>
+
+ 
+{% endif %}
 
 {% schema %}
-{
-    "name": "About Us",
-    "settings": [
-        {
-        "type": "checkbox",
-        "id": "show_section",
-        "label": "Show About Us",
-        "default": true
-        },
-        {
-        "type": "checkbox",
-        "id": "home_page_only",
-        "label": "Home page only",
-        "default": true
-        },
-        {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "This is a title"  
-        },
-         {
-        "type": "text",
-        "id": "paragraph",
-        "label": "Paragraph Text",
-        "default": "This is a paragraph"  
-        }
+    {
+        "name": "About Us",
+        "settings": [
+                     {
+                        "type": "checkbox",
+                        "id": "about_us_page_only",
+                        "label": "About us page only",
+                        "default": true
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "about_picture",
+                        "label": "About Us Picture"
+                    },
+                    {
+                        "type":"text",
+                        "id": "title",
+                        "label": "Heading",
+                        "default": "Write something about us..."
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Text"
+                    }
+        
     ]
-}
+    }
 {% endschema %}
+
+
+
+
+

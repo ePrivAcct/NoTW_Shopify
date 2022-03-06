@@ -17,7 +17,7 @@
         "text-banner": {
             "type": "text-banner",
             "settings": {
-                "about-us": "all"
+                "text-banner": "all"
             }
         }
     },

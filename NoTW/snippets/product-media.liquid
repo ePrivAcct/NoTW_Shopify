@@ -1,7 +1,17 @@
+    <style>
+    @media screen and (min-width:1021px) and (max-width: 1200px){
+        .product-image{
+                width: 500px;
+                height: 600px;
+        }
+    }
+    
+    </style>
+    
     {% case media.media_type %}
     {% when 'image' %}
            
-     <img src="{{ media | img_url: '800x800' }}" alt="{{ media.preview_image.alt }}" class=" h-full object-cover" >
+     <img src="{{ media | img_url: '800x800' }}" alt="{{ media.preview_image.alt }}" class=" product-image h-full object-cover " >
 
     {% when 'external_video' %}
         {{ media | external_video_tag: class: 'w-full h-80 object-cover' }}

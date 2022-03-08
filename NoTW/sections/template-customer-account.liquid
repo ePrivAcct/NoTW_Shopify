@@ -20,17 +20,23 @@
         color: #152238;
     }
 
+    @media screen and (min-width:1021px) and (max-width: 1200px){
+        .image-container{
+           width: 250px;
+    }
+
+    }
     
 
 </style>
 
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 ">
-    <div class=" account-log flex  justify-between ">
+    <div class=" account-log flex justify-between ">
     <h1 class="text-2xl font-bold text-gray-700">Account</h1>
 {% if shop.customer_accounts_enabled%} 
             {% if customer %}
         <div class="mr-22">
-        {{'LOG OUT' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900 pr-3 -ml-4 mr-40 log-out-btn"'}}    
+        {{'LOG OUT' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900 pr-3 -ml-4 mr-40 lg:mr-24 pr-2  xl:mr-36 log-out-btn"'}}    
         </div>
         {%endif%}
     {%endif%}
@@ -43,14 +49,14 @@
                
                 <h2 class="text-xl font-bold text-gray-700">Order history</h2>
 
-                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {% paginate customer.orders by 10 %}
                      {% for order in customer.orders %}
                             <div class="relative">
-                                <div class="w-full min-80 bg-gray-200 overflow-hidden lg:h-80">
+                                <div class="w-full min-80 bg-gray-200 overflow-hidden lg:h-80 image-container">
                                     {% if order.line_items.first.image %}
                                     <a href="{{ order.customer_url }}">
-                                        <img class=" w-full h-full  object-center object-cover" src="{{ order.line_items.first.image |  img_url: 'large'}}" alt="{{ order.line_items.first.image.alt }}">
+                                        <img class=" w-full h-full  object-center object-cover account-order-picture" src="{{ order.line_items.first.image |  img_url: 'large'}}" alt="{{ order.line_items.first.image.alt }}">
                                     {% else %}
                                         {{ 'product-1' | placeholder_svg_tag: 'object-center object-cover' }}
                                     {% endif %}
@@ -84,11 +90,12 @@
                 </div>
         {% endif %}
 
-        <div class="w-full md:w-1/4  ">
+        <div class="w-full md:w-1/4  lg:pl-5">
             <h2 class="text-xl font-bold text-gray-700 mb-6 pt-12 account-details">Details</h2>
 
-
-            {{ customer.default_address | format_address }}
+            <div class="-mt-3 pt-1.5">
+                {{ customer.default_address | format_address }}
+            </div>
 
             <a href="{{ routes.account_addresses_url }}" class="text-sm hover:text-blue-900 underline view-address">View addresses</a>
         </div>

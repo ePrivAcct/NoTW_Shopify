@@ -40,7 +40,18 @@
 
    
       <div class="content-wrap">
-    {{ content_for_layout }}
+      {% if request.path contains '/policies/refund-policy' %}
+          {%section 'refund-policy'%}
+      {% elsif request.path contains '/policies/shipping-policy' %}
+          {%section 'shipping-policy'%}
+      {% elsif request.path contains '/policies/privacy-policy' %}
+          {%section 'privacy-policy'%}
+      {% elsif request.path contains '/policies/terms-of-service' %}
+          {%section 'terms-of-service'%}
+      {% else %}
+          {{ content_for_layout }}  
+      {% endif %}
+   
  </div>
 
 {% if page.url == '/pages/about' %}

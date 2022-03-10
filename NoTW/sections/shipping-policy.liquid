@@ -1,3 +1,9 @@
 
-{{ page.content }}
+<div class="text-medium uppercase font-medium text-center ">
+        {{shop.shipping_policy.title}}
+    </div>
+
+        <div class="text-sm mx-10 my-10 xl:mx-72">
+            {{ shop.shipping_policy | newline_to_br }}
+    </div>
 

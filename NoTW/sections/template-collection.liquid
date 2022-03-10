@@ -1,9 +1,10 @@
-<div class="px-4 py-8">
+<div class="px-4 py-2">
     <!-- <a href="{{ routes.collections_url }}" class="text-base text-gray-500 hover:underline hover:text-blue-500 hover:uppercase text-center block my-4">back to collections</a> -->
     {% paginate collection.products by section.settings.number_of_products_per_page %}
-        <!-- <h1 class="text-3xl text-center">{{ collection.title }}</h1> -->
+          
         
         <div class="max-w-6xl mx-auto">
+        <h1 class="text-sm pl-1 uppercase py-3 ">T-shirts</h1>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                {% for product in collection.products %}                   
                     {% render 'product-card' product_product: product %}

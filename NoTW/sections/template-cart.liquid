@@ -4,71 +4,113 @@
         border: 1px solid #152238;
     }
 
-    .update-btn{
-        border: 1px solid #152238;
-    }
 
     .cont-shopping-btn {
         color: #152238;
+        border: 1px solid #152238;
     }
 
+    @media screen and (min-width:200px) and (max-width: 370px){
+         .cont-shopping-btn, .checkout-btn{
+             font-size: 8px;
+             
+            
+         }
 
+         .cont-shopping-btn{
+             padding: 10px;
+         }
+
+         .checkout-btn{
+             padding: 10px;
+         }
+
+    }
+
+   /* input[type="number"]:not([step="any"])::-webkit-inner-spin-button,
+    input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
+  opacity: 1;
+} */
 </style>
 
 {% if cart.item_count > 0 %}
-    <div class="p-4">
-        <div class="max-w-6xl flex flex-col my-10 mx-auto">
-            <div class="flex items-end justify-between my-5">
-                <h1 class="text-3xl">SHOPPING BAG</h1>
+    <div class="p-5">
+        <div class="max-w-4xl lg:max-w-7xl  flex flex-col my-1 mx-auto">
+            <div class="flex items-end justify-between my-1">
+                <h1 class="text-2xl -ml-2 lg:ml-1">BAG</h1>
             </div>
         </div>
 
-        <div class="max-w-6xl flex flex-col my-10 mx-auto">
+        <div class="max-w-4xl lg:max-w-7xl  flex flex-col my-5 mx-auto">
             <form action="{{ routes.cart_url }}" method="POST" novalidate>
-                <table class="table-auto divide-y divide-gray-200 my-4 w-full">
-                    <thead>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Product</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Quantity</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Total Price</th>
+                <table class="table-auto divide-y divide-gray-200 my-4 w-full grid grid-row-4 ">
+                    <thead class="table-row grid grid-cols-5">
+                        <th class="px-2 py-3 text-left text-sm font-medium text-gray-500 uppercase">Product</th>
+                        {% comment %} <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Quantity</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Total Price</th> {% endcomment %}
                     </thead>
-                    <tbody>
+                    <tbody class="">
+
+                    
                         {% for item in cart.items %}
-                            <tr class="table-row">
+                            <tr class="table-row grid grid-cols-3 lg:grid-cols-4 ">
+                            
                                 <td class="py-4 px-2 flex flex-col justify-center">
+                                
                                     <a href="{{ item.url }}">
                                         {% if item.image %}
-                                            <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title | escape }}" class="w-20 h-20 object-cover border">
+                                            <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="w-40 h-45 object-cover ">
                                         {% else %}
                                             {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border'}}
                                         {% endif %}
                                     </a>
                                 </td>
-                                <td class="py-4 px-2 flex flex-col justify-center">
-                                    <a href="{{ item.url }}" class="my-1">{{ item.product.title | truncatewords: 5 }}</a>
+                                  <div class=""> 
+                                <td class="py-4 px-4 w-full">
+                                    <a href="{{ item.url }}" class="my-1 text-xs lg:text-sm">{{ item.product.title | truncatewords: 5 }}</a>
+                                    <br>
                                     <span class="text-sm text-gray-500 my-1">{{ item.variant.title }}</span>
-                                    <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-light text-black-500 hover:font-extrabold my-1">REMOVE</a>
+                                    <br>
+                                    <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-xs lg:text-sm font-light text-black-500 hover:font-extrabold my-1">REMOVE</a>
                                 </td>
-                                <td class="py-4 px-4">
-                                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="1" id="updates_{{ forloop.index }}" class="w-20 border p-2">
+
+                                {% comment %} <td class="py-4 px-7">
+                                
+                                
+                                </td>   {% endcomment %}
+
+
+                                <td class="py-2 px-4 text-sm">
+                                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="1" id="updates_{{ forloop.index }}" class="w-20 border-b-2 p-2 text-center ">
+                                    <br>
+                                   
+                                    <div class="ml-3">
+                                        <button type="submit" name="update" class="update-btn text-xs p-1 text-center uppercase  text-gray-400 font-medium  hover:text-gray-900">Update</button>
+                                    </div>
                                 </td>
-                                <td class="py-4 px-7">
+                                <td class="py-4  text-sm flex justify-start pl-2 lg:pl-0 lg:justify-end">
                                     {{ item.line_price | money }}
                                 </td>
+                            </div>
+
+
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
                 
-                <div class="flex flex-col md:flex-row items-center justify-between">
-                    <div class="w-full my-4">
-                        <a href="{{ routes.all_products_collection_url }}" class="cont-shopping-btn hover:font-bold font-medium px-0 lg:px-2 ">CONTINUE SHOPPING</a>
-
+                <div class="justify-end">
+                <h3 class=" flex justify-end text-medium py-5 uppercase">Subtotal: {{ cart.total_price | money }}</h3>
+                    <div class="flex flex-row gap-2 w-full md:flex-row items-center justify-center ">
+                        <a href="{{ routes.all_products_collection_url }}" class="cont-shopping-btn w-full p-3 border font-medium text-center text-white text-xs lg:text-medium ">CONTINUE SHOPPING</a>
+                         <button type="submit" name="checkout" class="checkout-btn w-full p-3 border uppercase font-medium text-white text-xs lg:text-medium">Checkout</button>
+                                    </div>
                         <!-- <div class="flex flex-col items-start">
                             <label for="cart_notes" class="my-1">CART NOTES</label>
                             <textarea name="note" id="cart_notes" class="w-full md:max-w-lg resize-none border h-20"></textarea>
                         </div> -->
                     </div>
-                    <div class="w-full my-4 md:w-80">
+                    {% comment %} <div class="w-full my-4 md:w-80">
                         {% for block in section.blocks %}
                             {% case block.type %}
                                 {% when 'subtotal' %}
@@ -86,7 +128,7 @@
                             {% endcase %}
                         {% endfor %}
                                                 
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </form>
         </div>
@@ -94,7 +136,7 @@
 {% else %}
     <div class="max-w-6xl h-60 my-4 mx-auto flex items-center justify-center"> 
         <div class="text-center">
-            <h1 class="text-3xl my4">Your shopping bag is currently empty. </h1>
+            <h1 class="text-3xl my4">Bag is currently empty. </h1>
 
             <div class="my-4 py-4"><a href="{{ routes.all_products_collection_url }}" class=" text-white hover:bg-gray-900 px-8 py-2 shopping-btn">CONTINUE SHOPPING</a></div>
         </div>

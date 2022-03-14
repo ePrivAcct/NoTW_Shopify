@@ -1,3 +1,12 @@
+<style>
+
+    @media screen and (min-width:350px) and (max-width: 700px){
+
+    }
+
+</style>
+
+
 <div class="container mx-auto">
     {% paginate search.results by 3 %}
     <h1 class="text-xl my-8  text-center">SEARCH RESULTS</h1>
@@ -6,7 +15,7 @@
             {% if search.results.size > 0 %}
             <div class="max-w-6xl mx-auto">
                 <p class="text-gray-500 text-center my-10">{{ search.results.size }} result(s) found for the search term: <span class="font-medium uppercase">{{ search.terms | escape }}</span> </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
                         {% for item in search.results %}
                         
                                     {% case item.object_type %}

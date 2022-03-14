@@ -104,7 +104,7 @@
 </style>
 
 <div class="max-w-8xl mx-4 my-8">
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-20 product-page">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-10 product-page">
         <div class="product--medias">
             <div class="hidden lg:block ">
                 {% for media in product.media %}
@@ -134,7 +134,7 @@
             </div>
         </div>
 
-        <div class="product--information break-words sticky top-5 pl-2 pr-3 -mr-4 py-6">
+        <div class="product--information break-words sticky top-5 pl-2 pr-3 -mr-4  py-6 lg:py-1">
             {%form 'product', product, id: 'product-form', novalidate: 'novalidate' %}
                 <input type="hidden" name="id" value="{{ selected_variant.id }}">
 
@@ -147,7 +147,7 @@
                             </div> -->
 
                         {% when 'title'%}
-                            <div class="my-3">
+                            <div class="mb-3">
                                 <h1 class="text-2xl text-gray-500">{{ product.title }}</h1>        
                             </div>
 
